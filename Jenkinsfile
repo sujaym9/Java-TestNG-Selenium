@@ -55,7 +55,7 @@ node {
 
                     try {
 					
-                        bat 'mvn test -DtestPlanId=${TESTPLAN_KEY}  -Dbrowser=${BROWSER}  -DbrowserVersion=${BROWSER_VERSION} -DosVersion=${OSVERSION}'
+                        bat 'mvn test -P singleJenkins'
       
                     }
                     catch (Exception e) {
