@@ -55,7 +55,7 @@ node {
 
                     try {
 					
-                        bat 'mvn test -P singleJenkins'
+                        bat 'mvn test -P single'
       
                     }
                     catch (Exception e) {
