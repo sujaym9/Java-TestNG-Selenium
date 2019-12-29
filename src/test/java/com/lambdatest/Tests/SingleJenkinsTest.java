@@ -47,7 +47,7 @@ public class SingleJenkinsTest {
 		capability.setCapability("visual", true);
 		capability.setCapability("tunnel", true);
 
-		driver = new RemoteWebDriver(new URL(gridURL), capability);
+		driver = new RemoteWebDriver(new URL(hub.lambdatest.com), capability);
 
 	}
 
