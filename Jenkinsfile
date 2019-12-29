@@ -1,7 +1,10 @@
 
 def setupEnv() {
     ["PATH+MAVEN=${tool 'maven3'}/bin",
-     "PATH+JAVA_HOME=${tool 'jdk1.8'}/bin"
+     "PATH+JAVA_HOME=${tool 'jdk1.8'}/bin",
+	 "LT_USERNAME=sujaymasa",
+    "LT_ACCESS_KEY=m3EHeBp0sxUhVTwphDoJpQHkm8AQsgdWZXtWcjqmg9sj60GuKs",
+    "LT_TUNNEL=false"
      ]
 }
 
@@ -34,9 +37,6 @@ def notifySlack(String buildStatus = 'STARTED') {
 
 node {
 
-withEnv(["LT_USERNAME=sujaymasa",
-    "LT_ACCESS_KEY=m3EHeBp0sxUhVTwphDoJpQHkm8AQsgdWZXtWcjqmg9sj60GuKs",
-    "LT_TUNNEL=false"])
 	
 
     
@@ -75,8 +75,6 @@ withEnv(["LT_USERNAME=sujaymasa",
     }
 
 
-   
-}
  
  
 
