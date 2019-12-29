@@ -2,7 +2,7 @@
 def setupEnv() {
     ["PATH+MAVEN=${tool 'maven3'}/bin",
      "PATH+JAVA_HOME=${tool 'jdk1.8'}/bin",
-	 "LT_USERNAME=sujaymasa",
+     "LT_USERNAME=sujaymasa",
     "LT_ACCESS_KEY=m3EHeBp0sxUhVTwphDoJpQHkm8AQsgdWZXtWcjqmg9sj60GuKs",
     "LT_TUNNEL=false"
      ]
@@ -45,8 +45,26 @@ node {
 		
         timestamps {
                     
+		stage('Compile') {
+				
+                withEnv(setupEnv()) {
+				
+                    checkout scm
+                                       
+
+                    try {
 					
-				stage('Compile & Testing') {
+                        bat 'mvn compile'
+      
+                    }
+                    catch (Exception e) {
+                        currentBuild.result = 'FAILURE'
+			throw e
+                    }
+                }
+            }
+		
+		stage('Compile & Testing') {
 				
                 withEnv(setupEnv()) {
 				
